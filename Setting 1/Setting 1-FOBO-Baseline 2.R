@@ -126,7 +126,7 @@ for(j.fogp in 1:J.fogp){
   for(i.fogp in 1:m){
     basis <- smooth.basis(t.dis, t(y.for.fogp[[j.fogp]]), fdParobj)
     fpca <- pca.fd(basis$fd, nharm = basisobj$nbasis)
-    nharm <- which(cumsum(fpca$varprop) >= 0.99)[1]  # 解释 ≥ 99%
+    nharm <- which(cumsum(fpca$varprop) >= 0.99)[1]  
     fpca <- pca.fd(basis$fd, nharm = nharm)
     fpca.eig.value <- fpca$values[1:nharm]
     
@@ -200,6 +200,7 @@ re.fogp = list(x.for.fogp=x.for.fogp, y.for.fogp=y.for.fogp, g.for.fogp=g.for.fo
                hyper.for.fogp=hyper.for.fogp, beta.fogp=beta.fogp, ucb.for.fogp=ucb.for.fogp,
                time.for.fogp=time.for.fogp) 
 save(re.fogp, file="s1-re-fogp.RData")  
+
 
 
 
